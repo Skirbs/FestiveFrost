@@ -1,13 +1,155 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+/* General */
 :root {
   --background: hsl(240, 9%, 2%);
+  --font: hsl(0, 0%, 86%);
+  --font-translucent: hsl(0, 0%, 86%, 0.75);
+  --primary: hsl(136, 62%, 23%);
+  --primary-hover: hsl(136, 62%, 24%);
+  --secondary: hsl(136, 62%, 10%);
 }
 
 * {
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  color: var(--font);
 }
 
 body {
   background-color: var(--background);
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-shadow: 0 4px 2px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.button-normal,
+.button-outline {
+  background-color: var(--primary);
+  position: relative;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: ease-out 0.125s;
+  box-shadow: 0px 2px 4px 0px #00000075;
+
+  &:hover {
+    box-shadow: 0px 5px 10px 3px #00000075;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transition: 0.1s;
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+.button-normal {
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+}
+
+.button-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-image: url("Images/Store1.png");
+  position: relative;
+  box-shadow: inset 0px 50px 100px var(--background), inset 0px -50px 100px var(--background);
+}
+
+nav {
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  padding-inline: 8px;
+  animation: fade-up 0.5s;
+}
+
+nav a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+nav a * {
+  transition: ease-out 0.2s;
+}
+
+nav a:hover * {
+  opacity: 0.66;
+}
+
+nav a img {
+  width: 3.5rem;
+  opacity: 0.5;
+}
+
+nav a h1 {
+  opacity: 0.5;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.hero-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-action h2 {
+  font-size: 2.25rem;
+  opacity: 0;
+}
+
+.hero-action > :nth-child(1) {
+  animation: fade-up 0.5s 0.1s both;
+}
+.hero-action > :nth-child(2) {
+  animation: fade-up 0.5s 0.2s both;
+}
+
+.hero-action p {
+  margin: 12px 0;
+  text-align: center;
+  font-weight: 300;
+  color: var(--font-translucent);
+  width: 625px;
+  animation: fade-up 0.5s 0.3s both;
+}
+
+.hero-buttons-div {
+  opacity: 0;
+  animation: fade-up 0.5s 0.4s both;
 }
