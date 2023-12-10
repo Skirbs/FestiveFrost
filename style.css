@@ -2,10 +2,13 @@
 
 /* General */
 :root {
+  --background-1: hsl(240, 9%, 1%);
   --background-2: hsl(240, 9%, 2%);
   --background-3: hsl(240, 9%, 3%);
   --background-4: hsl(240, 10%, 4%);
   --background-5: hsl(240, 10%, 5%);
+  --background-10: hsl(240, 10%, 10%);
+  --background-20: hsl(240, 10%, 20%);
   --font: hsl(0, 0%, 86%);
   --font-translucent: hsl(0, 0%, 86%, 0.75);
   --primary: hsl(136, 62%, 23%);
@@ -31,6 +34,23 @@ h2,
 h3 {
   margin: 0;
   text-shadow: 0 4px 2px rgba(0, 0, 0, 0.9);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background-10);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-20);
 }
 
 @keyframes fade-up {
