@@ -80,10 +80,12 @@ h3 {
 /* Hero Section */
 .hero-section {
   display: flex;
+  min-height: 420px;
   height: 100vh;
   justify-content: center;
   align-items: center;
   background-image: url("Images/Store1.png");
+  background-size: cover;
   position: relative;
   box-shadow: inset 0px 50px 100px var(--background), inset 0px -50px 100px var(--background);
 }
@@ -129,6 +131,7 @@ nav a h1 {
 }
 
 .hero-action h2 {
+  text-align: center;
   font-size: 2.25rem;
   opacity: 0;
 }
@@ -145,7 +148,7 @@ nav a h1 {
   text-align: center;
   font-weight: 300;
   color: var(--font-translucent);
-  width: 625px;
+  width: clamp(200px, 70vw, 625px);
   animation: fade-up 0.5s 0.3s both;
 }
 
