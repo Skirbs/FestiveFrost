@@ -2,7 +2,10 @@
 
 /* General */
 :root {
-  --background: hsl(240, 9%, 2%);
+  --background-2: hsl(240, 9%, 2%);
+  --background-3: hsl(240, 9%, 3%);
+  --background-4: hsl(240, 10%, 4%);
+  --background-5: hsl(240, 10%, 5%);
   --font: hsl(0, 0%, 86%);
   --font-translucent: hsl(0, 0%, 86%, 0.75);
   --primary: hsl(136, 62%, 23%);
@@ -17,7 +20,7 @@
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--background-2);
   margin: 0;
 }
 
@@ -80,14 +83,14 @@ h3 {
 /* Hero Section */
 .hero-section {
   display: flex;
-  min-height: 420px;
+  min-height: 520px;
   height: 100vh;
   justify-content: center;
   align-items: center;
   background-image: url("Images/Store1.png");
   background-size: cover;
   position: relative;
-  box-shadow: inset 0px 50px 100px var(--background), inset 0px -50px 100px var(--background);
+  box-shadow: inset 0px 50px 100px var(--background-2), inset 0px -50px 100px var(--background-2);
 }
 
 nav {
@@ -128,19 +131,19 @@ nav a h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & > :nth-child(1) {
+    animation: fade-up 0.5s 0.1s both;
+  }
+  & > :nth-child(2) {
+    animation: fade-up 0.5s 0.2s both;
+  }
 }
 
 .hero-action h2 {
   text-align: center;
   font-size: 2.25rem;
   opacity: 0;
-}
-
-.hero-action > :nth-child(1) {
-  animation: fade-up 0.5s 0.1s both;
-}
-.hero-action > :nth-child(2) {
-  animation: fade-up 0.5s 0.2s both;
 }
 
 .hero-action p {
@@ -155,4 +158,111 @@ nav a h1 {
 .hero-buttons-div {
   opacity: 0;
   animation: fade-up 0.5s 0.4s both;
+}
+
+/* Need Section */
+.description-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 3rem;
+  gap: 16px;
+
+  background-image: linear-gradient(
+    to right,
+    var(--background-2) 0%,
+    var(--background-2) 80%,
+    var(--background-3) 95%,
+    var(--background-3) 100%
+  );
+
+  &:nth-of-type(odd) {
+    flex-direction: row-reverse;
+    background-image: linear-gradient(
+      to left,
+      var(--background-3) 0%,
+      var(--background-3) 80%,
+      var(--background-4) 95%,
+      var(--background-4) 100%
+    );
+  }
+}
+
+.description-section > .section-image {
+  position: relative;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.description-section > .section-image img {
+  position: absolute;
+  opacity: 0;
+  scale: 0.95;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease-out;
+  border-radius: 100px;
+  box-shadow: 0px 0px 20px hsla(0, 0%, 10%, 0.5);
+}
+
+.description-section:nth-of-type(even) > .section-image img {
+  left: -50px;
+}
+
+.description-section:nth-of-type(odd) > .section-image img {
+  right: -50px;
+}
+
+.description-section.anim-start > .section-image img {
+  opacity: 1;
+  scale: 1;
+}
+
+.description-section:nth-of-type(even).anim-start > .section-image img {
+  left: 0px;
+}
+
+.description-section:nth-of-type(odd).anim-start > .section-image img {
+  right: 0px;
+}
+
+.description-section > .section-desc {
+  width: clamp(200px, 75%, 600px);
+  padding-inline: 1.5rem;
+}
+
+.description-section > .section-desc > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-duration: 0.5s;
+}
+.description-section > .section-desc > h3 {
+  font-size: 2.25rem;
+}
+.description-section > .section-desc > p {
+  color: var(--font-translucent);
+  transition-delay: 0.075s;
+}
+
+.description-section:nth-child(odd) > .section-desc {
+  text-align: right;
+}
+.description-section.anim-start > .section-desc > * {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+@media (max-width: 1024px) {
+  .description-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .description-section > .section-image {
+    min-width: 275px;
+    min-height: 275px;
+  }
+  .description-section > .section-desc > * {
+    text-align: center;
+  }
 }
