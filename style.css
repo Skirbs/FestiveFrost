@@ -101,17 +101,26 @@ h3 {
   border: 2px solid var(--primary);
 }
 
-/* Hero Section */
-.hero-section {
+/* Hero Section and Call To Action Section */
+.hero-section,
+.call-to-action-section {
   display: flex;
   min-height: 520px;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-image: url("Images/Store1.png");
   background-size: cover;
+  background-position: center;
   position: relative;
   box-shadow: inset 0px 50px 100px var(--background-2), inset 0px -50px 100px var(--background-2);
+}
+
+.hero-section {
+  background-image: url("Images/Store1.png");
+}
+
+.call-to-action-section {
+  background-image: url("Images/Store2.png");
 }
 
 nav {
@@ -148,42 +157,87 @@ nav a h1 {
   font-size: 1.3rem;
 }
 
-.hero-action {
+.hero-action,
+.call-to-action-main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+.hero-action {
   & > :nth-child(1) {
     animation: fade-up 0.5s 0.1s both;
   }
   & > :nth-child(2) {
     animation: fade-up 0.5s 0.2s both;
   }
+  & > :nth-child(3) {
+    animation: fade-up 0.5s 0.3s both;
+  }
 }
 
-.hero-action h2 {
+.call-to-action-main > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+
+.call-to-action-main.anim-start {
+  & > * {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  & > :nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  & > :nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  & > :nth-child(3) {
+    transition-delay: 0.3s;
+  }
+}
+
+.hero-action h2,
+.call-to-action-main h2 {
   text-align: center;
   font-size: 2.25rem;
   opacity: 0;
 }
 
-.hero-action p {
+.hero-action h2 {
+  font-size: 2.25rem;
+}
+
+.call-to-action-main h2 {
+  font-size: 2.75rem;
+}
+
+.hero-action p,
+.call-to-action-main p {
   margin: 12px 0;
   text-align: center;
   font-weight: 300;
   color: var(--font-translucent);
   width: clamp(200px, 70vw, 625px);
-  animation: fade-up 0.5s 0.3s both;
+  opacity: 0;
+}
+
+.call-to-action-main p {
+  font-size: 1.5rem;
 }
 
 .hero-buttons-div {
   opacity: 0;
-  animation: fade-up 0.5s 0.4s both;
 }
 
 @media (max-width: 640px) {
   .hero-action h2 {
     font-size: 1.75rem !important;
+  }
+
+  .call-to-action-main h2 {
+    font-size: 2.25rem !important;
   }
 }
 
