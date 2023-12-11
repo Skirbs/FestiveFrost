@@ -4,7 +4,7 @@ const observer = new IntersectionObserver(
       entry.target.classList.toggle("anim-start", entry.isIntersecting);
     });
   },
-  {rootMargin: "-40%"}
+  {rootMargin: "-30%"}
 );
 
 const animElements = document.querySelectorAll(".anim");
